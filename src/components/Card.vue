@@ -13,13 +13,16 @@ export default {
 
 
 <template>
-    <div class=" my-card h-100">
-        <div class="card h-100">
-            <img :src="`http://image.tmdb.org/t/p/w500/${card.poster_path}` " class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text fw-bold text-center">{{ card.title ? card.title : card.name }}</h4>
-                <div class="hover-content">
-                    <p class="card-text fs-2 fw-bold text-center p-2">{{ card.original_title ? card.original_title : card.original_name}}</p>
+    <div class="card h-100">
+        <img :src="card.poster_path === null ? `video-movie-placeholder-image-grey.png` : `http://image.tmdb.org/t/p/w500/${card.poster_path}`"
+            class="card-img-top" alt="">
+        <div class="card-body">
+            <h4 class="card-text fw-bold text-center">{{ card.title ? card.title : card.name }}</h4>
+            <div class="hover-content">
+                <img class="b-logo" src="../assets/img/B-Card.png" alt="B">
+                <div class="hover-text">
+                    <p class="card-text fs-4 fw-bold text-center">{{ card.original_title ? card.original_title :
+                        card.original_name }}</p>
                     <p class="card-text text-center">Language: {{ card.original_language }}</p>
                     <p class="card-text text-center">Vote: {{ card.vote_count }}</p>
                 </div>
@@ -31,16 +34,21 @@ export default {
 <style lang="scss" scoped>
 @use "../styles/partials/variables" as *;
 
-.my-card {
+.card {
     position: relative;
 
     .hover-content {
         display: none;
-        position: absolute;
-        inset: 0;
 
-        .card-text{
-            
+
+        .b-logo {
+            position: absolute;
+            padding: 1rem;
+        }
+
+        .hover-text {
+            padding: 1rem;
+            margin-top: 4rem;
         }
     }
 
@@ -48,8 +56,10 @@ export default {
 
         .hover-content {
             display: block;
-            z-index: 10;
+            position: absolute;
+            inset: 0;
             backdrop-filter: grayscale(100%) blur(5px);
+            background-color: rgba(0, 0, 0, 0.61);
             width: 100%;
             height: 100%;
         }
@@ -66,7 +76,7 @@ export default {
 
         &:hover {
 
-            background-color: rgba(0, 0, 0, 0.521);
+            background-color: rgba(0, 0, 0);
 
 
 

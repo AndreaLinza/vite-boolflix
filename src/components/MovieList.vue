@@ -22,6 +22,10 @@ export default {
 <template>
 
     <div class="container">
+
+        <h2 class="text-light pt-4">
+            Movie & Serie TV
+        </h2>
         <div class="row row-cols-4 g-4">
             <div class="col py-4" 
             v-for="element in store.movieList">
