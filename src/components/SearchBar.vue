@@ -25,7 +25,7 @@ export default {
 <template>
     <div class="input-group mb-3 w-auto">
         <input type="text" class="form-control" placeholder="Impegni per stasera?" 
-        v-model="store.search" 
+        v-model="store.search"
         @keyup.enter="movieList(searchUrl)">
         <button class="btn btn-outline-danger" type="button"
         @click="movieList(searchUrl)">

@@ -3,6 +3,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
 
+
     movieList: [],
     search: ""
 
@@ -39,7 +40,24 @@ export function movieList(urls) {
             store.movieList.push(...response.data.results)
             store.search = "";
         })
-    })};
+    })
+};
+
+export function starsVote(z) {
+
+    const star = parseFloat(z)
+    const ratings = star /2
+
+
+    const starsTot = 5
+
+
+    const starPercentage = (ratings / starsTot) * 100;
+
+    const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+    
+    return starPercentageRounded
+}
 
 
 
