@@ -25,7 +25,8 @@ export default {
 
 <template>
     <div class="card h-100">
-        <img :src="card.poster_path === null ? `video-movie-placeholder-image-grey.png` : card.poster_path === undefined ? `video-movie-placeholder-image-grey.png` : `http://image.tmdb.org/t/p/w500/${card.poster_path}`"
+        <img 
+        :src="card.poster_path === null ? `video-movie-placeholder-image-grey.png` : card.poster_path === undefined ? `video-movie-placeholder-image-grey.png` : `http://image.tmdb.org/t/p/w500/${card.poster_path}`"
             class="card-img-top" alt="">
         <div class="card-body">
             <h4 class="card-text fw-bold text-center">{{ card.title ? card.title : card.name }}</h4>
@@ -34,14 +35,15 @@ export default {
                 <div class="hover-text">
                     <p class="card-text fs-4 fw-bold text-center">
                         {{ card.original_title ? card.original_title : card.original_name }}</p>
-                    <p class="card-text text-center">Language: <lang-flag class="flag-w" :iso="card.original_language" />
+                    <p class="card-text text-center"><strong class="px-2">Language:</strong><lang-flag :iso="card.original_language"  />
                     </p>
 
-                    <p class="card-text text-center">Vote:
+                    <p class="card-text text-center"><strong>Vote:</strong>
                         <div class="stars-outer">
                             <div class="stars-inner" :style="`width:${starsVote(card.vote_average)};`"></div>
                         </div>
                     </p>
+                    <p class="card-text text-center"><strong>Description:</strong> {{ card.overview }}</p>
                 </div>
             </div>
         </div>
@@ -105,6 +107,7 @@ export default {
             background-color: rgba(0, 0, 0, 0.61);
             width: 100%;
             height: 100%;
+            overflow: auto;
         }
 
     }

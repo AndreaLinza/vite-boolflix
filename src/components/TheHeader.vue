@@ -24,6 +24,13 @@ export default {
 <style lang="scss" scoped>
 @use "../styles/partials/variables" as *;
 
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+}
+
 
 
 

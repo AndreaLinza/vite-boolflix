@@ -36,5 +36,9 @@ export default {
 
 main{
     background-color: rgb(31, 30, 30);
+
+    .container{
+        margin-top: 105px;
+    }
 }
 </style>
